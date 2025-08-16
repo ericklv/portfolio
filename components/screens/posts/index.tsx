@@ -12,9 +12,10 @@ import { readingTime } from "reading-time-estimator";
 interface Props {
   post: Post;
   route: string;
+  className?: string;
 }
 
-export const Layout = ({ post, route }: Props) => {
+export const Layout = ({ post, route, className }: Props) => {
   const posts = getPosts(route);
 
   const Seperator = () => {
@@ -34,7 +35,9 @@ export const Layout = ({ post, route }: Props) => {
 
   return (
     <React.Fragment>
-      <div className="flex flex-col">
+      <div
+        className={"flex flex-col print:hidden " + className ? className : ""}
+      >
         <div>
           <h1>{post.title}</h1>
         </div>
