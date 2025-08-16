@@ -35,9 +35,7 @@ export const Layout = ({ post, route, className }: Props) => {
 
   return (
     <React.Fragment>
-      <div
-        className={"flex flex-col print:hidden " + className ? className : ""}
-      >
+      <div className={`flex flex-col print:hidden ${className ? className : ""}`}>
         <div>
           <h1>{post.title}</h1>
         </div>

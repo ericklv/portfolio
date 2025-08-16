@@ -1,15 +1,7 @@
 import type { RESUME_DATA } from "../../data/resume-data";
 
-import React from "react";
-
 import { Badge } from "../../components/resume/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../../components/resume/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/resume/ui/card";
 import { Section } from "../../components/resume/ui/section";
 
 type ProjectTags = readonly string[];
@@ -37,16 +29,9 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
         aria-label={`${title} project (opens in new tab)`}
       >
         {title}
-        <span
-          className="size-1 rounded-full bg-green-500"
-          title="Active project indicator"
-          aria-hidden="true"
-        />
+        <span className="size-1 rounded-full bg-green-500" title="Active project indicator" aria-hidden="true" />
       </a>
-      <div
-        className="hidden font-mono text-xs underline print:visible"
-        aria-hidden="true"
-      >
+      <div className="hidden font-mono text-xs underline print:visible" aria-hidden="true">
         {link.replace("https://", "").replace("www.", "").replace("/", "")}
       </div>
     </>
@@ -64,16 +49,10 @@ function ProjectTags({ tags }: ProjectTagsProps) {
   if (tags.length === 0) return null;
 
   return (
-    <ul
-      className="mt-2 flex list-none flex-wrap gap-1 p-0"
-      aria-label="Technologies used"
-    >
+    <ul className="mt-2 flex list-none flex-wrap gap-1 p-0" aria-label="Technologies used">
       {tags.map((tag) => (
         <li key={tag}>
-          <Badge
-            className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
-            variant="secondary"
-          >
+          <Badge className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:text-[8px] print:leading-tight" variant="secondary">
             {tag}
           </Badge>
         </li>
@@ -100,10 +79,7 @@ function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
           <CardTitle className="text-base">
             <ProjectLink title={title} link={link} />
           </CardTitle>
-          <CardDescription
-            className="text-pretty font-mono text-xs print:text-[10px]"
-            aria-label="Project description"
-          >
+          <CardDescription className="text-pretty font-mono text-xs print:text-[10px]" aria-label="Project description">
             {description}
           </CardDescription>
         </div>
@@ -125,11 +101,11 @@ interface ProjectsProps {
 export function Projects({ projects }: ProjectsProps) {
   return (
     <Section className="scroll-mb-16 print:space-y-4">
-      <h2 className="text-xl font-bold" id="side-projects">
+      <h2 className="font-bold text-xl" id="side-projects">
         Side projects
       </h2>
       <div
-        className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2 px-4"
+        className="-mx-3 grid grid-cols-1 gap-3 px-4 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2"
         role="feed"
         aria-labelledby="side-projects"
       >
@@ -138,12 +114,7 @@ export function Projects({ projects }: ProjectsProps) {
             key={project.title}
             className="h-full" // Added h-full here
           >
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              tags={project.techStack}
-              link={project.link?.href}
-            />
+            <ProjectCard title={project.title} description={project.description} tags={project.techStack} link={project.link?.href} />
           </article>
         ))}
       </div>

@@ -1,5 +1,3 @@
-import exp from "constants";
-
 export * from "./education";
 export * from "./section-error-boundary";
 export * from "./header";

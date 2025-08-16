@@ -1,15 +1,6 @@
 import type { Post } from "@/types";
 
-import {
-  Education,
-  Header,
-  Projects,
-  SectionErrorBoundary,
-  SectionSkeleton,
-  Skills,
-  Summary,
-  WorkExperience,
-} from "@/components/resume";
+import { Education, Header, Projects, SectionErrorBoundary, SectionSkeleton, Skills, Summary, WorkExperience } from "@/components/resume";
 import { Layout } from "@/components/screens/posts";
 import { RESUME_DATA } from "@/data/resume-data";
 import { getPosts } from "@/lib/mdx";
@@ -33,9 +24,7 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: PageProps) {
-  const post = Posts.find(
-    (post: { slug: string }) => post.slug === params.slug,
-  );
+  const post = Posts.find((post: { slug: string }) => post.slug === params.slug);
   const title = post ? post.title : "";
   const image = `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent(title)}`;
 
@@ -53,9 +42,7 @@ export function generateMetadata({ params }: PageProps) {
 }
 
 export default function Page({ params }: PageProps) {
-  const post = Posts.find(
-    (post: { slug: string }) => post.slug === params.slug,
-  );
+  const post = Posts.find((post: { slug: string }) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -64,14 +51,8 @@ export default function Page({ params }: PageProps) {
   return (
     <>
       <Layout post={post} route={route} className="hidden" />
-      <main
-        className="container relative mx-auto scroll-my-12 overflow-auto print:p-11"
-        id="main-content"
-      >
-        <section
-          className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
-          aria-label="Resume Content"
-        >
+      <main className="container relative mx-auto scroll-my-12 overflow-auto print:p-11" id="main-content">
+        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4" aria-label="Resume Content">
           <SectionErrorBoundary sectionName="Header">
             <Suspense fallback={<SectionSkeleton lines={4} />}>
               <Header />

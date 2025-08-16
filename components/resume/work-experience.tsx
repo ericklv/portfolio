@@ -5,8 +5,6 @@ import { Card, CardContent, CardHeader } from "@/components/resume/ui/card";
 import { Section } from "@/components/resume/ui/section";
 import { cn } from "@/lib/cn";
 
-import React from "react";
-
 type WorkExperience = (typeof RESUME_DATA)["work"][number];
 type WorkBadges = readonly string[];
 
@@ -23,16 +21,10 @@ function BadgeList({ className, badges }: BadgeListProps) {
   if (badges.length === 0) return null;
 
   return (
-    <ul
-      className={cn("inline-flex list-none gap-x-1 p-0", className)}
-      aria-label="Technologies used"
-    >
+    <ul className={cn("inline-flex list-none gap-x-1 p-0", className)} aria-label="Technologies used">
       {badges.map((badge) => (
         <li key={badge}>
-          <Badge
-            variant="secondary"
-            className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
-          >
+          <Badge variant="secondary" className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight">
             {badge}
           </Badge>
         </li>
@@ -51,10 +43,7 @@ interface WorkPeriodProps {
  */
 function WorkPeriod({ start, end }: WorkPeriodProps) {
   return (
-    <div
-      className="text-sm tabular-nums text-gray-500"
-      title={`Employment period: ${start} to ${end ?? "Present"}`}
-    >
+    <div className="text-gray-500 text-sm tabular-nums" title={`Employment period: ${start} to ${end ?? "Present"}`}>
       {start} - {end ?? "Present"}
     </div>
   );
@@ -70,13 +59,7 @@ interface CompanyLinkProps {
  */
 function CompanyLink({ company, link }: CompanyLinkProps) {
   return (
-    <a
-      className="hover:underline"
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${company} company website`}
-    >
+    <a className="hover:underline" href={link} target="_blank" rel="noopener noreferrer" aria-label={`${company} company website`}>
       {company}
     </a>
   );
@@ -99,28 +82,18 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
         <div className="flex items-center justify-between gap-x-2 text-base">
           <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
             <CompanyLink company={company} link={link} />
-            <BadgeList
-              className="hidden gap-x-1 sm:inline-flex"
-              badges={badges}
-            />
+            <BadgeList className="hidden gap-x-1 sm:inline-flex" badges={badges} />
           </h3>
           <WorkPeriod start={start} end={end} />
         </div>
 
-        <h4 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
-          {title}
-        </h4>
+        <h4 className="font-mono font-semibold text-sm leading-none print:text-[12px]">{title}</h4>
       </CardHeader>
 
       <CardContent>
-        <div className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px] text-pretty">
-          {description}
-        </div>
+        <div className="mt-2 text-pretty text-foreground/80 text-xs print:mt-1 print:text-[10px]">{description}</div>
         <div className="mt-2">
-          <BadgeList
-            className="-mx-2 flex-wrap gap-1 sm:hidden"
-            badges={badges}
-          />
+          <BadgeList className="-mx-2 flex-wrap gap-1 sm:hidden" badges={badges} />
         </div>
       </CardContent>
     </Card>
@@ -138,14 +111,10 @@ interface WorkExperienceProps {
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>
-      <h2 className="text-xl font-bold" id="work-experience">
+      <h2 className="font-bold text-xl" id="work-experience">
         Work Experience
       </h2>
-      <div
-        className="space-y-4 print:space-y-0"
-        role="feed"
-        aria-labelledby="work-experience"
-      >
+      <div className="space-y-4 print:space-y-0" role="feed" aria-labelledby="work-experience">
         {work.map((item) => (
           <article key={`${item.company}-${item.start}`}>
             <WorkExperienceItem work={item} />

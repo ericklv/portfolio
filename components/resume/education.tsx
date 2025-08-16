@@ -3,8 +3,6 @@ import type { RESUME_DATA } from "@/data/resume-data";
 import { Card, CardContent, CardHeader } from "@/components/resume/ui/card";
 import { Section } from "@/components/resume/ui/section";
 
-import React from "react";
-
 type Education = (typeof RESUME_DATA)["education"][number];
 
 interface EducationPeriodProps {
@@ -17,10 +15,7 @@ interface EducationPeriodProps {
  */
 function EducationPeriod({ start, end }: EducationPeriodProps) {
   return (
-    <div
-      className="text-sm tabular-nums text-gray-500"
-      title={`Period: ${start} to ${end}`}
-    >
+    <div className="text-gray-500 text-sm tabular-nums" title={`Period: ${start} to ${end}`}>
       {start} - {end}
     </div>
   );
@@ -40,21 +35,13 @@ function EducationItem({ education }: EducationItemProps) {
     <Card>
       <CardHeader>
         <div className="flex items-center justify-between gap-x-2 text-base">
-          <h3
-            className="font-semibold leading-none"
-            id={`education-${school.toLowerCase().replace(/\s+/g, "-")}`}
-          >
+          <h3 className="font-semibold leading-none" id={`education-${school.toLowerCase().replace(/\s+/g, "-")}`}>
             {school}
           </h3>
           <EducationPeriod start={start} end={end} />
         </div>
       </CardHeader>
-      <CardContent
-        className="mt-2 text-foreground/80 print:text-[12px]"
-        aria-labelledby={`education-${school
-          .toLowerCase()
-          .replace(/\s+/g, "-")}`}
-      >
+      <CardContent className="mt-2 text-foreground/80 print:text-[12px]" aria-labelledby={`education-${school.toLowerCase().replace(/\s+/g, "-")}`}>
         {degree}
       </CardContent>
     </Card>
@@ -72,14 +59,10 @@ interface EducationListProps {
 export function Education({ education }: EducationListProps) {
   return (
     <Section>
-      <h2 className="text-xl font-bold" id="education-section">
+      <h2 className="font-bold text-xl" id="education-section">
         Education
       </h2>
-      <div
-        className="space-y-4"
-        role="feed"
-        aria-labelledby="education-section"
-      >
+      <div className="space-y-4" role="feed" aria-labelledby="education-section">
         {education.map((item) => (
           <article key={item.school}>
             <EducationItem education={item} />

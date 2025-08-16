@@ -8,9 +8,8 @@ export const RESUME_DATA: ResumeData = {
   about: "DevOps Engineer dedicated to building high-quality products.",
   summary: (
     <>
-      Full Stack Engineer specializing in high-performance React applications,
-      scalable Node.js services, and real-time collaboration systems.
-      Experienced in technical architecture design and remote team leadership.
+      Full Stack Engineer specializing in high-performance React applications, scalable Node.js services, and real-time collaboration systems. Experienced in
+      technical architecture design and remote team leadership.
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/12323985?v=4",
@@ -52,12 +51,7 @@ export const RESUME_DATA: ResumeData = {
       title: "Senior Software Engineer",
       start: "2025",
       end: null,
-      description: (
-        <>
-          Working on internal AI agents platform allowing marketing specialists
-          to create AI workflows.
-        </>
-      ),
+      description: <>Working on internal AI agents platform allowing marketing specialists to create AI workflows.</>,
     },
     {
       company: "Film.io",
@@ -68,20 +62,11 @@ export const RESUME_DATA: ResumeData = {
       end: "2025",
       description: (
         <>
-          Leading technical architecture of a blockchain-based film funding
-          platform.
+          Leading technical architecture of a blockchain-based film funding platform.
           <ul className="list-inside list-disc">
-            <li>
-              Architecting migration from CRA to Next.js for improved
-              performance, SEO, and DX
-            </li>
-            <li>
-              Established release process enabling faster deployments and
-              reliable rollbacks
-            </li>
-            <li>
-              Implementing system-wide monitoring and security improvements
-            </li>
+            <li>Architecting migration from CRA to Next.js for improved performance, SEO, and DX</li>
+            <li>Established release process enabling faster deployments and reliable rollbacks</li>
+            <li>Implementing system-wide monitoring and security improvements</li>
           </ul>
         </>
       ),
@@ -89,33 +74,17 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "Parabol",
       link: "https://parabol.co",
-      badges: [
-        "Remote",
-        "React",
-        "TypeScript",
-        "Node.js",
-        "GraphQL",
-        "Tailwind CSS",
-      ],
+      badges: ["Remote", "React", "TypeScript", "Node.js", "GraphQL", "Tailwind CSS"],
       title: "Senior Full Stack Developer",
       start: "2021",
       end: "2024",
       description: (
         <>
-          Senior developer and squad leader for an enterprise agile meeting
-          platform.
+          Senior developer and squad leader for an enterprise agile meeting platform.
           <ul className="list-inside list-disc">
-            <li>
-              Built design system with Tailwind CSS, improving development speed
-              and time to market
-            </li>
-            <li>
-              Implemented engineering practices: PR automation, code review
-              guidelines, and workflows
-            </li>
-            <li>
-              Open source contributions to Relay DevTools and React i18n tooling
-            </li>
+            <li>Built design system with Tailwind CSS, improving development speed and time to market</li>
+            <li>Implemented engineering practices: PR automation, code review guidelines, and workflows</li>
+            <li>Open source contributions to Relay DevTools and React i18n tooling</li>
           </ul>
         </>
       ),
@@ -129,21 +98,11 @@ export const RESUME_DATA: ResumeData = {
       end: "2021",
       description: (
         <>
-          Successfully transitioned from mobile to full-stack development while
-          leading distributed teams.
+          Successfully transitioned from mobile to full-stack development while leading distributed teams.
           <ul className="list-inside list-disc">
-            <li>
-              Led frontend team at Evercast, building real-time platform
-              supporting 30+ users per room with HD streaming and collaboration
-              tools
-            </li>
-            <li>
-              Developed offline-first Android app for DKMS, improving donor
-              registration process
-            </li>
-            <li>
-              Led development teams across multiple successful client projects
-            </li>
+            <li>Led frontend team at Evercast, building real-time platform supporting 30+ users per room with HD streaming and collaboration tools</li>
+            <li>Developed offline-first Android app for DKMS, improving donor registration process</li>
+            <li>Led development teams across multiple successful client projects</li>
           </ul>
         </>
       ),
@@ -157,13 +116,9 @@ export const RESUME_DATA: ResumeData = {
       end: "2015",
       description: (
         <>
-          First Android developer, grew and led a team of 15+ engineers while
-          establishing engineering culture.
+          First Android developer, grew and led a team of 15+ engineers while establishing engineering culture.
           <ul className="list-inside list-disc">
-            <li>
-              Developed apps for major Polish companies including LOT, Polskie
-              Radio, and Agora
-            </li>
+            <li>Developed apps for major Polish companies including LOT, Polskie Radio, and Agora</li>
             <li>Built and mentored high-performing mobile development team</li>
           </ul>
         </>
@@ -206,18 +161,8 @@ export const RESUME_DATA: ResumeData = {
     },
     {
       title: "Consultly",
-      techStack: [
-        "TypeScript",
-        "Next.js",
-        "Vite",
-        "GraphQL",
-        "WebRTC",
-        "Tailwind CSS",
-        "PostgreSQL",
-        "Redis",
-      ],
-      description:
-        "Platform for online consultations with real-time video meetings and scheduling",
+      techStack: ["TypeScript", "Next.js", "Vite", "GraphQL", "WebRTC", "Tailwind CSS", "PostgreSQL", "Redis"],
+      description: "Platform for online consultations with real-time video meetings and scheduling",
       link: {
         label: "consultly.com",
         href: "https://consultly.com/",
@@ -226,8 +171,7 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "Minimalist CV",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
-      description:
-        "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+      description: "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
       link: {
         label: "Minimalist CV",
         href: "https://github.com/BartoszJarocki/cv",

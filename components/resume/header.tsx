@@ -1,4 +1,5 @@
 import type { IconType } from "@/lib/types";
+import type React from "react";
 
 import { GitHubIcon, LinkedInIcon } from "@/components/resume/icons";
 import { XIcon } from "@/components/resume/icons/x-icon";
@@ -7,13 +8,9 @@ import { Button } from "@/components/resume/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
-import React from "react";
 
 // Type-safe icon mapping
-const ICON_MAP: Record<
-  IconType,
-  React.ComponentType<React.SVGProps<SVGSVGElement>>
-> = {
+const ICON_MAP: Record<IconType, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
   x: XIcon,
@@ -29,7 +26,7 @@ interface LocationLinkProps {
 
 function LocationLink({ location, locationLink }: LocationLinkProps) {
   return (
-    <p className="max-w-md items-center text-pretty font-mono text-xs text-foreground">
+    <p className="max-w-md items-center text-pretty font-mono text-foreground text-xs">
       <a
         className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
         href={locationLink}
@@ -55,12 +52,7 @@ function SocialButton({ href, iconType, label }: SocialButtonProps) {
 
   return (
     <Button className="size-8" variant="outline" size="icon" asChild={true}>
-      <a
-        href={href}
-        aria-label={label}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={href} aria-label={label} target="_blank" rel="noopener noreferrer">
         <IconComponent className="size-4" aria-hidden="true" />
       </a>
     </Button>
@@ -74,44 +66,25 @@ interface ContactButtonsProps {
 
 function ContactButtons({ contact, personalWebsiteUrl }: ContactButtonsProps) {
   return (
-    <ul
-      className="flex list-none gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden"
-      aria-label="Contact links"
-    >
+    <ul className="flex list-none gap-x-1 pt-1 font-mono text-foreground/80 text-sm print:hidden" aria-label="Contact links">
       {personalWebsiteUrl && (
         <li>
-          <SocialButton
-            href={personalWebsiteUrl}
-            iconType="globe"
-            label="Personal website"
-          />
+          <SocialButton href={personalWebsiteUrl} iconType="globe" label="Personal website" />
         </li>
       )}
       {contact.email && (
         <li>
-          <SocialButton
-            href={`mailto:${contact.email}`}
-            iconType="mail"
-            label="Email"
-          />
+          <SocialButton href={`mailto:${contact.email}`} iconType="mail" label="Email" />
         </li>
       )}
       {contact.tel && (
         <li>
-          <SocialButton
-            href={`tel:${contact.tel}`}
-            iconType="phone"
-            label="Phone"
-          />
+          <SocialButton href={`tel:${contact.tel}`} iconType="phone" label="Phone" />
         </li>
       )}
       {contact.social.map((social) => (
         <li key={social.name}>
-          <SocialButton
-            href={social.url}
-            iconType={social.icon}
-            label={social.name}
-          />
+          <SocialButton href={social.url} iconType={social.icon} label={social.name} />
         </li>
       ))}
     </ul>
@@ -125,13 +98,10 @@ interface PrintContactProps {
 
 function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
   return (
-    <div className="hidden gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]">
+    <div className="hidden gap-x-2 font-mono text-foreground/80 text-sm print:flex print:text-[12px]">
       {personalWebsiteUrl && (
         <>
-          <a
-            className="underline hover:text-foreground/70"
-            href={personalWebsiteUrl}
-          >
+          <a className="underline hover:text-foreground/70" href={personalWebsiteUrl}>
             {new URL(personalWebsiteUrl).hostname}
           </a>
           <span aria-hidden="true">/</span>
@@ -139,20 +109,14 @@ function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
       )}
       {contact.email && (
         <>
-          <a
-            className="underline hover:text-foreground/70"
-            href={`mailto:${contact.email}`}
-          >
+          <a className="underline hover:text-foreground/70" href={`mailto:${contact.email}`}>
             {contact.email}
           </a>
           <span aria-hidden="true">/</span>
         </>
       )}
       {contact.tel && (
-        <a
-          className="underline hover:text-foreground/70"
-          href={`tel:${contact.tel}`}
-        >
+        <a className="underline hover:text-foreground/70" href={`tel:${contact.tel}`}>
           {contact.tel}
         </a>
       )}
@@ -167,35 +131,19 @@ export function Header() {
   return (
     <header className="flex items-center justify-between">
       <div className="flex-1 space-y-1.5">
-        <h1 className="text-2xl font-bold" id="resume-name">
+        <h1 className="font-bold text-2xl" id="resume-name">
           {RESUME_DATA.name}
         </h1>
-        <p className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]">
-          {RESUME_DATA.about}
-        </p>
+        <p className="max-w-md text-pretty font-mono text-foreground/80 text-sm print:text-[12px]">{RESUME_DATA.about}</p>
 
-        <LocationLink
-          location={RESUME_DATA.location}
-          locationLink={RESUME_DATA.locationLink}
-        />
+        <LocationLink location={RESUME_DATA.location} locationLink={RESUME_DATA.locationLink} />
 
-        <ContactButtons
-          contact={RESUME_DATA.contact}
-          personalWebsiteUrl={RESUME_DATA.personalWebsiteUrl}
-        />
+        <ContactButtons contact={RESUME_DATA.contact} personalWebsiteUrl={RESUME_DATA.personalWebsiteUrl} />
 
-        <PrintContact
-          contact={RESUME_DATA.contact}
-          personalWebsiteUrl={RESUME_DATA.personalWebsiteUrl}
-        />
+        <PrintContact contact={RESUME_DATA.contact} personalWebsiteUrl={RESUME_DATA.personalWebsiteUrl} />
       </div>
 
-      <Avatar
-        className="size-28"
-        src={RESUME_DATA.avatarUrl}
-        alt={`${RESUME_DATA.name}'s profile picture`}
-        fallback={RESUME_DATA.initials}
-      />
+      <Avatar className="size-28" src={RESUME_DATA.avatarUrl} alt={`${RESUME_DATA.name}'s profile picture`} fallback={RESUME_DATA.initials} />
     </header>
   );
 }

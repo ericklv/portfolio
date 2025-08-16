@@ -75,8 +75,8 @@
     .flex {
       div {
         h1 {
-          font-size: 2rem;
           padding-bottom: 5px;
+          font-size: 2rem;
         }
       }
     }

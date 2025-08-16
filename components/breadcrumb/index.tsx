@@ -13,17 +13,10 @@ export const Breadcrumb = ({ className }: React.HTMLProps<HTMLDivElement>) => {
   const paths = pathname
     .split("/")
     .filter((path) => path !== "")
-    .map((path) =>
-      path.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()),
-    );
+    .map((path) => path.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()));
 
   return (
-    <div
-      className={cn(
-        "mt-0 mb-4 flex w-full items-center gap-1 align-middle font-normal text-small " +
-          className,
-      )}
-    >
+    <div className={cn(`mt-0 mb-4 flex w-full items-center gap-1 align-middle font-normal text-small ${className}`)}>
       <Link className="text-muted" href="/">
         Home
       </Link>
@@ -45,9 +38,7 @@ export const Breadcrumb = ({ className }: React.HTMLProps<HTMLDivElement>) => {
                 {path}
               </Link>
             )}
-            {index < paths.length - 1 && (
-              <ChevronRightIcon className="text-muted" />
-            )}
+            {index < paths.length - 1 && <ChevronRightIcon className="text-muted" />}
           </React.Fragment>
         );
       })}
